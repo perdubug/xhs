@@ -82,7 +82,7 @@
         android:supportsRtl="true" >
 
         <activity
-            android:name="com.microsoft.xlauncher.Launcher"
+            android:name="com.microsoft.xlauncher.XLauncher"
             android:launchMode="singleTask"
             android:clearTaskOnLaunch="true"
             android:stateNotNeeded="true"

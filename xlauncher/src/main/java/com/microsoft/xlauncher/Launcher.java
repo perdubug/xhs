@@ -1103,7 +1103,7 @@ public class Launcher extends Activity
         public void onScrollProgressChanged(float progress);
 
         // Indicates whether the user is allowed to scroll away from the custom content.
-        boolean isScrollingAllowed();
+        public boolean isScrollingAllowed();
     }
 
     public interface LauncherOverlay {
