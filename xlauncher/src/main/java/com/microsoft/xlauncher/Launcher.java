@@ -3950,58 +3950,64 @@ public class Launcher extends Activity
         // NO-OP
     }
 
+    // TODO: Add our own global search bar here
     public View getQsbBar() {
-        if (mLauncherCallbacks != null && mLauncherCallbacks.providesSearch()) {
-            return mLauncherCallbacks.getQsbBar();
-        }
 
-        if (mQsb == null) {
-            AppWidgetProviderInfo searchProvider = Utilities.getSearchWidgetProvider(this);
-            if (searchProvider == null) {
-                return null;
-            }
+        return null; // disable google search bar for now
 
-            Bundle opts = new Bundle();
-            opts.putInt(AppWidgetManager.OPTION_APPWIDGET_HOST_CATEGORY,
-                    AppWidgetProviderInfo.WIDGET_CATEGORY_SEARCHBOX);
-
-            SharedPreferences sp = getSharedPreferences(
-                    LauncherAppState.getSharedPreferencesKey(), MODE_PRIVATE);
-            int widgetId = sp.getInt(QSB_WIDGET_ID, -1);
-            AppWidgetProviderInfo widgetInfo = mAppWidgetManager.getAppWidgetInfo(widgetId);
-            if (!searchProvider.provider.flattenToString().equals(
-                    sp.getString(QSB_WIDGET_PROVIDER, null))
-                    || (widgetInfo == null)
-                    || !widgetInfo.provider.equals(searchProvider.provider)) {
-                // A valid widget is not already bound.
-                if (widgetId > -1) {
-                    mAppWidgetHost.deleteAppWidgetId(widgetId);
-                    widgetId = -1;
-                }
-
-                // Try to bind a new widget
-                widgetId = mAppWidgetHost.allocateAppWidgetId();
-
-                if (!AppWidgetManagerCompat.getInstance(this)
-                        .bindAppWidgetIdIfAllowed(widgetId, searchProvider, opts)) {
-                    mAppWidgetHost.deleteAppWidgetId(widgetId);
-                    widgetId = -1;
-                }
-
-                sp.edit()
-                    .putInt(QSB_WIDGET_ID, widgetId)
-                    .putString(QSB_WIDGET_PROVIDER, searchProvider.provider.flattenToString())
-                    .commit();
-            }
-
-            if (widgetId != -1) {
-                mQsb = mAppWidgetHost.createView(this, widgetId, searchProvider);
-                mQsb.updateAppWidgetOptions(opts);
-                mQsb.setPadding(0, 0, 0, 0);
-                mSearchDropTargetBar.addView(mQsb);
-            }
-        }
-        return mQsb;
+//        if (mLauncherCallbacks != null && mLauncherCallbacks.providesSearch()) {
+//            return mLauncherCallbacks.getQsbBar();
+//        }
+//
+//        if (mQsb == null) {
+//            AppWidgetProviderInfo searchProvider = Utilities.getSearchWidgetProvider(this);
+//            if (searchProvider == null) {
+//                return null;
+//            }
+//
+//            Bundle opts = new Bundle();
+//            opts.putInt(AppWidgetManager.OPTION_APPWIDGET_HOST_CATEGORY,
+//                    AppWidgetProviderInfo.WIDGET_CATEGORY_SEARCHBOX);
+//
+//            SharedPreferences sp = getSharedPreferences(
+//                    LauncherAppState.getSharedPreferencesKey(), MODE_PRIVATE);
+//            int widgetId = sp.getInt(QSB_WIDGET_ID, -1);
+//            AppWidgetProviderInfo widgetInfo = mAppWidgetManager.getAppWidgetInfo(widgetId);
+//            if (!searchProvider.provider.flattenToString().equals(
+//                    sp.getString(QSB_WIDGET_PROVIDER, null))
+//                    || (widgetInfo == null)
+//                    || !widgetInfo.provider.equals(searchProvider.provider)) {
+//                // A valid widget is not already bound.
+//                if (widgetId > -1) {
+//                    mAppWidgetHost.deleteAppWidgetId(widgetId);
+//                    widgetId = -1;
+//                }
+//
+//                // Try to bind a new widget
+//                widgetId = mAppWidgetHost.allocateAppWidgetId();
+//
+//                if (!AppWidgetManagerCompat.getInstance(this)
+//                        .bindAppWidgetIdIfAllowed(widgetId, searchProvider, opts)) {
+//                    mAppWidgetHost.deleteAppWidgetId(widgetId);
+//                    widgetId = -1;
+//                }
+//
+//                sp.edit()
+//                    .putInt(QSB_WIDGET_ID, widgetId)
+//                    .putString(QSB_WIDGET_PROVIDER, searchProvider.provider.flattenToString())
+//                    .commit();
+//            }
+//
+//            if (widgetId != -1) {
+//                mQsb = mAppWidgetHost.createView(this, widgetId, searchProvider);
+//                mQsb.updateAppWidgetOptions(opts);
+//                mQsb.setPadding(0, 0, 0, 0);
+//
+//                if (mSearchDropTargetBar != null)
+//                    mSearchDropTargetBar.addView(mQsb);
+//            }
+//        }
+//        return mQsb;
     }
 
     @Override

@@ -19,7 +19,7 @@
 
     <appwidget
         launcher:packageName="com.android.deskclock"
-        launcher:className="com.android.alarmclock.AnalogAppWidgetProvider"
+        launcher:className="com.android.alarmclock.DigitalAppWidgetProvider"
         launcher:screen="2"
         launcher:container="-100"
         launcher:x="1"
