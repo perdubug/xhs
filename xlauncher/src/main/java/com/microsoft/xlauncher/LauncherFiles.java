@@ -16,7 +16,7 @@ public class LauncherFiles {
 
     public static final String DEFAULT_WALLPAPER_THUMBNAIL = "default_thumb2.jpg";
     public static final String DEFAULT_WALLPAPER_THUMBNAIL_OLD = "default_thumb.jpg";
-    public static final String LAUNCHER_DB = "launcher.db";
+    public static final String LAUNCHER_DB = "xlauncher.db";
     public static final String LAUNCHER_PREFERENCES = "launcher.preferences";
     public static final String LAUNCHES_LOG = "launches.log";
     public static final String SHARED_PREFERENCES_KEY = "com.microsoft.xlauncher.prefs";
