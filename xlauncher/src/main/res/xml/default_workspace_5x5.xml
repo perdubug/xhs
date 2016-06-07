@@ -20,12 +20,22 @@
     <appwidget
         launcher:packageName="com.android.deskclock"
         launcher:className="com.android.alarmclock.DigitalAppWidgetProvider"
-        launcher:screen="2"
+        launcher:screen="1"
         launcher:container="-100"
         launcher:x="1"
         launcher:y="0"
         launcher:spanX="2"
         launcher:spanY="2" />
+
+    <appwidget
+        launcher:packageName="com.corp.microsoft.samplewidget"
+        launcher:className="com.corp.microsoft.samplewidget.SimpleWidgetProvider"
+        launcher:screen="0"
+        launcher:container="-100"
+        launcher:x="0"
+        launcher:y="0"
+        launcher:spanX="4"
+        launcher:spanY="1" />
 
     <resolve
         launcher:screen="0"
